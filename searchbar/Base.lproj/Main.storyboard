@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,14 +18,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="npI-af-XLY">
-                                <rect key="frame" x="0.0" y="59" width="393" height="56"/>
+                                <rect key="frame" x="0.0" y="64" width="331" height="56"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="rjJ-6M-Zax"/>
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jiZ-mI-GND">
-                                <rect key="frame" x="0.0" y="115" width="393" height="703"/>
+                                <rect key="frame" x="0.0" y="120" width="393" height="698"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TableViewCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="h6X-FP-BTS" customClass="TableViewCell" customModule="searchbar" customModuleProvider="target">
@@ -57,20 +58,33 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Q9i-xC-gVg"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axd-UU-6sw">
+                                <rect key="frame" x="331" y="75" width="49" height="34.333333333333343"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="arrow.up.arrow.down.square" catalog="system" symbolScale="large"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="orderbutton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eCj-ye-eMb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="npI-af-XLY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VJA-VT-pf1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Axd-UU-6sw" secondAttribute="trailing" constant="13" id="2yC-QT-Swb"/>
+                            <constraint firstItem="Axd-UU-6sw" firstAttribute="centerY" secondItem="npI-af-XLY" secondAttribute="centerY" id="5ih-AJ-BBo"/>
+                            <constraint firstItem="npI-af-XLY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="VJA-VT-pf1"/>
+                            <constraint firstItem="Axd-UU-6sw" firstAttribute="leading" secondItem="npI-af-XLY" secondAttribute="trailing" id="YdO-4V-zXF"/>
                             <constraint firstItem="jiZ-mI-GND" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ZUX-U2-y3X"/>
                             <constraint firstItem="jiZ-mI-GND" firstAttribute="top" secondItem="npI-af-XLY" secondAttribute="bottom" id="iPR-6A-arK"/>
                             <constraint firstItem="npI-af-XLY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="khR-kY-mEE"/>
                             <constraint firstItem="jiZ-mI-GND" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="v74-Hk-Uaw"/>
-                            <constraint firstItem="npI-af-XLY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="y9X-qb-1Gh"/>
                             <constraint firstItem="jiZ-mI-GND" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zmi-Mm-nJr"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="orderbuttonrefrence" destination="Axd-UU-6sw" id="bxl-j0-Tcf"/>
                         <outlet property="searchbar" destination="npI-af-XLY" id="nON-Ha-YBt"/>
                         <outlet property="tableview" destination="jiZ-mI-GND" id="w0P-vD-sou"/>
                     </connections>
@@ -81,6 +95,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.up.arrow.down.square" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

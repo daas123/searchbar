@@ -9,6 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
+  
+    @IBOutlet weak var orderbuttonrefrence: UIButton!
+    
+    var orderbtn = false
     var maindata = ["saad", "aditi" ,"chintan","saad", "aditi" ,"chintan","saad", "aditi" ,"chintan","saad", "aditi" ,"chintan"]
     var searcheddata : [String] = []
     
@@ -16,13 +20,31 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableview: UITableView!
     
     override func viewDidLoad() {
-        self.tableview.isEditing = true
+        self.tableview.isEditing = false
         searcheddata = maindata
         tableview.delegate = self
         tableview.dataSource = self
         searchbar.delegate = self
         super.viewDidLoad()
     }
+    
+    
+    @IBAction func orderbutton(_ sender: UIButton) {
+        if (orderbtn)
+        {
+            orderbtn = false
+            tableview.isEditing = true
+            orderbuttonrefrence.setImage(UIImage(systemName: "arrow.up.arrow.down.square.fill" ), for: .normal)
+        }else{
+            orderbtn = true
+            tableview.isEditing = false
+            orderbuttonrefrence.setImage(UIImage(systemName: "arrow.up.arrow.down.square"), for: .normal)
+            
+        }
+    }
+    
+    
+    
     
 }
 extension ViewController :UITableViewDelegate , UITableViewDataSource , UISearchBarDelegate {
@@ -31,7 +53,7 @@ extension ViewController :UITableViewDelegate , UITableViewDataSource , UISearch
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         cell.userlabel.text = searcheddata[indexPath.row]
         return cell
     }
@@ -42,30 +64,51 @@ extension ViewController :UITableViewDelegate , UITableViewDataSource , UISearch
         }
         tableview.reloadData()
     }
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchbar.text = ""
         searcheddata = maindata
         searchbar.endEditing(true)
         tableview.reloadData()
     }
+
     
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .none
+        return .delete
+    }
+    
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete
+        {
+            searcheddata.remove(at: indexPath.row)
+            tableView.reloadData()
+        } else {
+            print("Insert")
+        }
     }
 
     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
     }
-    
+
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
+
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let item = maindata[sourceIndexPath.row]
-        maindata.remove(at: sourceIndexPath.row)
-        maindata.insert(item, at: destinationIndexPath.row)
+        let item = searcheddata[sourceIndexPath.row]
+        searcheddata.remove(at: sourceIndexPath.row)
+        searcheddata.insert(item, at: destinationIndexPath.row)
     }
+    
     
     
     
