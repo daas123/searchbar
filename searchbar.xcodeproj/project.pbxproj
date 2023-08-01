@@ -16,6 +16,7 @@
 		929A45A52A78C5870021D085 /* searchbarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929A45A42A78C5870021D085 /* searchbarTests.swift */; };
 		929A45AF2A78C5880021D085 /* searchbarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929A45AE2A78C5880021D085 /* searchbarUITests.swift */; };
 		929A45B12A78C5880021D085 /* searchbarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929A45B02A78C5880021D085 /* searchbarUITestsLaunchTests.swift */; };
+		929A45BE2A78C6D60021D085 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929A45BD2A78C6D60021D085 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		929A45AA2A78C5870021D085 /* searchbarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = searchbarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		929A45AE2A78C5880021D085 /* searchbarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchbarUITests.swift; sourceTree = "<group>"; };
 		929A45B02A78C5880021D085 /* searchbarUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchbarUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		929A45BD2A78C6D60021D085 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				929A458F2A78C5840021D085 /* SceneDelegate.swift */,
 				929A45912A78C5840021D085 /* ViewController.swift */,
 				929A45932A78C5840021D085 /* Main.storyboard */,
+				929A45BD2A78C6D60021D085 /* TableViewCell.swift */,
 				929A45962A78C5870021D085 /* Assets.xcassets */,
 				929A45982A78C5870021D085 /* LaunchScreen.storyboard */,
 				929A459B2A78C5870021D085 /* Info.plist */,
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				929A45922A78C5840021D085 /* ViewController.swift in Sources */,
+				929A45BE2A78C6D60021D085 /* TableViewCell.swift in Sources */,
 				929A458E2A78C5840021D085 /* AppDelegate.swift in Sources */,
 				929A45902A78C5840021D085 /* SceneDelegate.swift in Sources */,
 			);
